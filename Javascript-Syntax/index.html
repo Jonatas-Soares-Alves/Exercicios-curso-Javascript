@@ -1,0 +1,57 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>JavaScript Syntax</title>
+</head>
+<body>
+    <h1>Testes:</h1>
+    <script>
+        //Mensagem no console.
+        console.log('Olá mundo!');
+
+        /*
+        Anotações de Sintaxe:
+
+        var   -> variavel Global;
+        let   -> variavel Local;
+        const -> Constante;
+
+        if(){}
+        else if(){}
+        else{}
+
+        && -> and
+        || -> or
+
+        function nome(parametro){} -> declara função.
+        */
+
+        (function(num){
+            console.log('Função declarada e chamada com o valor: '+num);
+        })(5);
+
+        //Loop While:
+        var w = 1;
+        while(w < 4){
+            console.log('Loop while: '+w);
+            w++;
+        }
+
+        //Loop For:
+        for(let i = 0; i < 3; i++){
+            console.log('Loop for: '+i)
+        }
+
+        //Loop Do While
+        var dw = 0;
+        do{
+            console.log('Loop do while: '+dw);
+            dw++
+        }while(dw < 3);
+    </script>
+    
+</body>
+</html>
