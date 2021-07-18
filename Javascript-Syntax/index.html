@@ -42,7 +42,7 @@
 
         //Loop For:
         for(let i = 0; i < 3; i++){
-            console.log('Loop for: '+i)
+            console.log('Loop for: '+i);
         }
 
         //Loop Do While
@@ -51,6 +51,14 @@
             console.log('Loop do while: '+dw);
             dw++
         }while(dw < 3);
+
+        //Loop For Each
+        arr = ['Felipe', 'Emily', 'Ana'];
+        
+        arr.forEach(function(valor, indice){
+            console.log('O indice '+indice+' tem o valor: '+valor);
+        });
+
     </script>
     
 </body>
