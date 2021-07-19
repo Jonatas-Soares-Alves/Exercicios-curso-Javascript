@@ -1,0 +1,87 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>JavaScript OOP</title>
+</head>
+<body>
+    <script>
+
+        // Declarando atributos de um objeto / Chamando um objeto
+        objMochila = {
+            'comida' : 'maçã',
+
+            'ferramentas' : ['mapa', 'bulsola', 'corda'],
+            
+            'roupas' : {
+                'cabeca' : 'boné',
+                'corpo' : 'camisa',
+                'pernas' : 'calça jeans',
+                'pes' : 'botas'
+            }
+        };
+
+        console.log('Alimento: ' + objMochila.comida);
+        console.log('Ferramentas: ' + objMochila.ferramentas);
+        console.log('Roupa: ' + objMochila.roupas.corpo);
+        //======================================================
+
+        function Pessoa(nome, idade){ // Declara um objeto
+            if(nome == undefined){ //Checa se estádefinido e define um valor
+                nome = '¯\\\_(ツ)_/¯';
+            }
+            if(idade == undefined){
+                idade = '0';
+            }
+            this.Ola = function() { // Método Ola:
+             console.log('Meu nome é '+nome+' e eu tenho '+idade+' anos de idade');   
+            }
+        }
+
+        // Testando Objeto criado.
+        p1 = new Pessoa();
+        p2 = new Pessoa('Jonas', 27);
+        p1.Ola();
+        p2.Ola();
+        //------------------------------------------------------
+
+        // Criando Classes
+        class Animal{
+            constructor(especie, alimento){
+                this.especie = especie;
+                this.alimento = alimento;
+                this.qntAlimento = 10;
+            }
+
+            comer(){
+                console.log(this.especie+' Está comendo 3 '+ this.alimento);
+                this.qntAlimento = this.qntAlimento - 3;
+                console.log('Sobraram: '+this.qntAlimento+' '+this.alimento)
+            }
+        }
+
+        // Criando Classe filha de "Animal"
+        class Humano extends Animal{
+            constructor(nome){
+                super('Humano','Fastfood');
+                this.nome = nome;
+            }
+            ler(livro){
+                console.log(this.nome+' é um '+this.especie+', come '+this.alimento+'e está lendo o livro: '+livro);
+            }
+        }
+
+        // Testando Classes
+        leao = new Animal('Leão','Carnes');
+        leao.comer();
+        leao.comer();
+
+        pessoa1 = new Humano('Leonardo');
+        pessoa1.ler('A arte da guerra');
+        //======================================================
+    </script>
+    
+</body>
+</html>
