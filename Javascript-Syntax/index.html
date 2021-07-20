@@ -52,12 +52,17 @@
             dw++
         }while(dw < 3);
 
-        //Loop For Each
+        //Loop For Each:
         arr = ['Felipe', 'Emily', 'Ana'];
         
         arr.forEach(function(valor, indice){
             console.log('O indice '+indice+' tem o valor: '+valor);
         });
+
+        //Loop For Of:
+        for(let elemento of arr){
+            console.log('Loop for of: '+elemento);
+        }
 
     </script>
     
