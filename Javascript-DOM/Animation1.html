@@ -1,0 +1,67 @@
+<!DOCTYPE html>
+<html lang="pt-br">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Animações</title>
+    <style>
+        .conteudo{
+            background-color: rgb(185, 185, 185);
+            width: 500px;
+        }
+
+        span{
+            font-size: 15px;
+            color: rgb(0, 109, 173);
+            cursor: pointer;
+        }
+
+        .conteudo p{
+            overflow: hidden;
+            height: 0px;
+            transition: 1s;
+        }
+
+        .Mostrar{
+            height: 230px !important;
+        }
+    </style>
+</head>
+<body>
+    <div class="conteudo">
+        <h1>Titulo 1 <span id="bt1">Ver mais</span></h1>
+        <p id="txt1">Lorem ipsum dolor sit amet consectetur adipisicing elit. Harum nihil illum quibusdam debitis aliquam autem amet quod consectetur veniam aliquid! Sapiente dicta ea quidem fugiat quasi alias dolorum blanditiis dolor! Lorem ipsum, dolor sit amet consectetur adipisicing elit. Totam alias, autem doloribus accusamus soluta et, ipsum dolores quae sit modi quas libero? Quod natus ipsam dolorem consequuntur possimus maiores provident! Lorem ipsum dolor sit amet consectetur adipisicing elit. Harum nihil illum quibusdam debitis aliquam autem amet quod consectetur veniam aliquid! Sapiente dicta ea quidem fugiat quasi alias dolorum blanditiis dolor! Lorem ipsum, dolor sit amet consectetur adipisicing elit. Totam alias, autem doloribus accusamus soluta et, ipsum dolores quae sit modi quas libero? Quod natus ipsam dolorem consequuntur possimus maiores provident!</p>
+    </div>
+
+    <div class="conteudo">
+        <h1>Titulo 2 <span id="bt2">Ver mais</span></h1>
+        <p id="txt2">Lorem ipsum dolor sit amet consectetur adipisicing elit. Harum nihil illum quibusdam debitis aliquam autem amet quod consectetur veniam aliquid! Sapiente dicta ea quidem fugiat quasi alias dolorum blanditiis dolor! Lorem ipsum, dolor sit amet consectetur adipisicing elit. Totam alias, autem doloribus accusamus soluta et, ipsum dolores quae sit modi quas libero? Quod natus ipsam dolorem consequuntur possimus maiores provident! Lorem ipsum dolor sit amet consectetur adipisicing elit. Harum nihil illum quibusdam debitis aliquam autem amet quod consectetur veniam aliquid! Sapiente dicta ea quidem fugiat quasi alias dolorum blanditiis dolor! Lorem ipsum, dolor sit amet consectetur adipisicing elit. Totam alias, autem doloribus accusamus soluta et, ipsum dolores quae sit modi quas libero? Quod natus ipsam dolorem consequuntur possimus maiores provident!</p>
+    </div>
+
+    <script>
+        function EsconderMostar(texto, botao){
+            let txtConteudo = document.querySelector(texto);
+            let btSpan = document.querySelector(botao);
+
+            if(txtConteudo.classList.contains('Mostrar')){
+                txtConteudo.classList.remove('Mostrar');
+                btSpan.style.color = 'rgb(0, 109, 173)';
+                btSpan.innerHTML = 'Ver mais';
+
+            }else{
+                txtConteudo.classList.add('Mostrar');
+                btSpan.style.color = 'rgb(144, 0, 173)';
+                btSpan.innerHTML = 'Ocultar';
+            }
+        }
+
+        document.querySelector('.conteudo h1 #bt1')
+        .addEventListener('click', EsconderMostar.bind(this, '.conteudo #txt1', '.conteudo h1 #bt1'));
+
+        document.querySelector('.conteudo h1 #bt2')
+        .addEventListener('click', EsconderMostar.bind(this, '.conteudo #txt2', '.conteudo h1 #bt2'))
+    </script>
+    
+</body>
+</html>
