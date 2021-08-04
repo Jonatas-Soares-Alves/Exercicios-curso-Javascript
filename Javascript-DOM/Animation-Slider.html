@@ -1,0 +1,82 @@
+<!DOCTYPE html>
+<html lang="pt-br">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Slider</title>
+    <style>
+        .wrap-container{
+            width: 600px;
+            border-color: rgb(109, 109, 109);
+            border-style: dotted;
+        }
+
+        .container{
+            position: relative;
+            height: 420px;
+        }
+
+        .container img{
+            position: absolute;
+            width: 100%;
+            left: 0;
+            top: 0;
+            opacity: 0;
+            transition: 0.3s;
+        }
+
+        .bullets{
+            text-align: center;
+        }
+
+        .bullet-single{
+            display: inline-block;
+            width: 20px;
+            height: 20px;
+            margin: 0 8px;
+            border-radius: 10px;
+            background-color: rgb(116, 116, 116);
+            cursor: pointer;
+        }
+
+        .active-bullet{
+            background-color: rgb(50, 18, 92);
+        }
+    </style>
+</head>
+<body>
+    <div class="wrap-container">
+        <div class="container">
+            <img style="opacity: 1;" src="https://picsum.photos/id/237/600/400">
+            <img src="https://picsum.photos/id/238/600/400">
+            <img src="https://picsum.photos/id/239/600/400">
+        </div>
+
+        <div class="bullets">
+            <div class="bullet-single active-bullet"></div>
+            <div class="bullet-single"></div>
+            <div class="bullet-single"></div>
+        </div>
+    </div>
+    
+    <script>
+        var ultIndex = 0
+        var imgs = document.querySelectorAll('.container img');
+        var bullets = document.querySelectorAll('.bullet-single')
+
+        bullets.forEach((item, index)=>{
+            item.addEventListener('click', ()=>{
+                imgs[ultIndex].style.opacity = 0;
+                imgs[index].style.opacity = 1;
+
+                bullets[ultIndex].classList.remove('active-bullet');
+                bullets[index].classList.add('active-bullet');
+
+                ultIndex = index;
+            })
+        })
+
+    </script>
+</body>
+</html>

@@ -1,0 +1,114 @@
+<!DOCTYPE html>
+<html lang="pt-br">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Slider</title>
+    <style>
+        .wrap-container{
+            width: 600px;
+            border-color: rgb(109, 109, 109);
+            border-style: dotted;
+        }
+
+        .container{
+            position: relative;
+            height: 420px;
+        }
+
+        .container img{
+            position: absolute;
+            opacity: 0;
+            width: 100%;
+            left: 0;
+            top: 0;
+            transition: 0.3s;
+        }
+
+        .bullets{
+            text-align: center;
+        }
+
+        .bullet-single{
+            display: inline-block;
+            width: 20px;
+            height: 20px;
+            margin: 0 8px;
+            border-radius: 10px;
+            background-color: rgb(116, 116, 116);
+            cursor: pointer;
+        }
+
+        .active-bullet{
+            background-color: rgb(50, 18, 92);
+        }
+    </style>
+</head>
+<body>
+    <div class="wrap-container">
+        <div class="container">
+        </div>
+
+        <div class="bullets">
+        </div>
+    </div>
+    
+    <script>
+        let itens = 4; //<--- Quantidade.
+
+        function criarImg(qnt){
+            let id = 110;
+            let wraper = document.querySelector('.container');
+
+            for (let i = 0; i < qnt; i++) {
+                id += 1;
+
+                if (id == 111){
+                    wraper.innerHTML = wraper.innerHTML
+                    +'<img style="opacity: 1;" src="https://picsum.photos/id/'+id+'/600/400">';
+                }else{
+                    wraper.innerHTML = wraper.innerHTML
+                    +'<img src="https://picsum.photos/id/'+id+'/600/400">';
+                }
+            }
+        }
+
+        function criarBullet(qnt){
+            let bullets = document.querySelector('.bullets');
+
+            for (let i = 0; i < qnt; i++){
+                if(i == 0){
+                    bullets.innerHTML = bullets.innerHTML+
+                    '<div class="bullet-single active-bullet"></div>';
+                }else{
+                    bullets.innerHTML = bullets.innerHTML+
+                    '<div class="bullet-single"></div>';
+                }
+            }
+        }
+
+        function ligarBullets(){
+            let lastIndex = 0;
+            let AllBullets = document.querySelectorAll('.bullet-single');
+            let AllImg = document.querySelectorAll('.container img');
+
+            AllBullets.forEach((bullet, index) => {
+              bullet.addEventListener('click', ()=>{
+                AllImg[lastIndex].style.opacity = 0;
+                AllImg[index].style.opacity = 1;
+
+                AllBullets[lastIndex].classList.remove('active-bullet');
+                AllBullets[index].classList.add('active-bullet');
+                lastIndex = index;
+              });
+            });
+        }
+
+        criarImg(itens);
+        criarBullet(itens);
+        ligarBullets();
+
+    </script>
+</body>
+</html>
